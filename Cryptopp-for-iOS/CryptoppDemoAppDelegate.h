@@ -2,8 +2,8 @@
 //  CryptoppDemoAppDelegate.h
 //  Cryptopp-for-iOS
 //
-//  Created by TAKEDA hiroyuki on 11/12/23.
-//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
+//  Created by TAKEDA hiroyuki(aka @3ign0n) on 11/12/23.
+//  Copyright (c) 2011年 All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

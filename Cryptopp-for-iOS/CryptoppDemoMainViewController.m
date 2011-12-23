@@ -1,24 +1,24 @@
 //
-//  CryptoppDemoMasterViewController.m
+//  CryptoppDemoMainViewController.m
 //  Cryptopp-for-iOS
 //
-//  Created by TAKEDA hiroyuki on 11/12/23.
-//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
+//  Created by TAKEDA hiroyuki(aka @3ign0n) on 11/12/23.
+//  Copyright (c) 2011 All rights reserved.
 //
 
-#import "CryptoppDemoMasterViewController.h"
+#import "CryptoppDemoMainViewController.h"
 
-#import "CryptoppDemoDetailViewController.h"
+#import "CryptoppDemohashViewController.h"
 
-@implementation CryptoppDemoMasterViewController
+@implementation CryptoppDemoMainViewController
 
-@synthesize detailViewController = _detailViewController;
+@synthesize hashViewController = _hashViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Master", @"Master");
+        self.title = NSLocalizedString(@"Main", @"Main");
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             self.clearsSelectionOnViewWillAppear = NO;
             self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
@@ -106,7 +106,7 @@
     }
 
     // Configure the cell.
-    cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+    cell.textLabel.text = NSLocalizedString(@"Hash Functions", @"Hash Functions");
     return cell;
 }
 
@@ -151,10 +151,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-	    if (!self.detailViewController) {
-	        self.detailViewController = [[CryptoppDemoDetailViewController alloc] initWithNibName:@"CryptoppDemoDetailViewController_iPhone" bundle:nil];
+	    if (!self.hashViewController) {
+	        self.hashViewController = [[CryptoppDemoHashViewController alloc] initWithNibName:@"CryptoppDemoHashViewController_iPhone" bundle:nil];
 	    }
-        [self.navigationController pushViewController:self.detailViewController animated:YES];
+        [self.navigationController pushViewController:self.hashViewController animated:YES];
     }
 }
 

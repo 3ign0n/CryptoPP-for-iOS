@@ -2,15 +2,15 @@
 //  CryptoppDemoAppDelegate.m
 //  Cryptopp-for-iOS
 //
-//  Created by TAKEDA hiroyuki on 11/12/23.
-//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
+//  Created by TAKEDA hiroyuki(@3ign0n) on 11/12/23.
+//  Copyright (c) 2011年 All rights reserved.
 //
 
 #import "CryptoppDemoAppDelegate.h"
 
-#import "CryptoppDemoMasterViewController.h"
+#import "CryptoppDemoMainViewController.h"
 
-#import "CryptoppDemoDetailViewController.h"
+#import "CryptoppDemoHashViewController.h"
 
 @implementation CryptoppDemoAppDelegate
 
@@ -23,19 +23,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        CryptoppDemoMasterViewController *masterViewController = [[CryptoppDemoMasterViewController alloc] initWithNibName:@"CryptoppDemoMasterViewController_iPhone" bundle:nil];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        CryptoppDemoMainViewController *mainViewController = [[CryptoppDemoMainViewController alloc] initWithNibName:@"CryptoppDemoMainViewController_iPhone" bundle:nil];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
         self.window.rootViewController = self.navigationController;
     } else {
-        CryptoppDemoMasterViewController *masterViewController = [[CryptoppDemoMasterViewController alloc] initWithNibName:@"CryptoppDemoMasterViewController_iPad" bundle:nil];
-        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        CryptoppDemoMainViewController *mainViewController = [[CryptoppDemoMainViewController alloc] initWithNibName:@"CryptoppDemoMainViewController_iPad" bundle:nil];
+        UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
         
-        CryptoppDemoDetailViewController *detailViewController = [[CryptoppDemoDetailViewController alloc] initWithNibName:@"CryptoppDemoDetailViewController_iPad" bundle:nil];
-        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+        CryptoppDemoHashViewController *hashViewController = [[CryptoppDemoHashViewController alloc] initWithNibName:@"CryptoppDemoHashViewController_iPad" bundle:nil];
+        UINavigationController *hashNavigationController = [[UINavigationController alloc] initWithRootViewController:hashViewController];
     	
         self.splitViewController = [[UISplitViewController alloc] init];
-        self.splitViewController.delegate = detailViewController;
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+        self.splitViewController.delegate = hashViewController;
+        self.splitViewController.viewControllers = [NSArray arrayWithObjects:mainNavigationController, hashNavigationController, nil];
         
         self.window.rootViewController = self.splitViewController;
     }
