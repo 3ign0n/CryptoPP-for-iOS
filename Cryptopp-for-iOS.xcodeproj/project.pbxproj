@@ -1,0 +1,325 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83F72F5E14A407170061CCFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F72F5D14A407170061CCFF /* UIKit.framework */; };
+		83F72F6014A407170061CCFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F72F5F14A407170061CCFF /* Foundation.framework */; };
+		83F72F6214A407170061CCFF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F72F6114A407170061CCFF /* CoreGraphics.framework */; };
+		83F72F6814A407170061CCFF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83F72F6614A407170061CCFF /* InfoPlist.strings */; };
+		83F72F6A14A407170061CCFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F72F6914A407170061CCFF /* main.m */; };
+		83F72F6E14A407170061CCFF /* CryptoppDemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F72F6D14A407170061CCFF /* CryptoppDemoAppDelegate.m */; };
+		83F72F7114A407170061CCFF /* CryptoppDemoMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F72F7014A407170061CCFF /* CryptoppDemoMasterViewController.m */; };
+		83F72F7414A407170061CCFF /* CryptoppDemoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F72F7314A407170061CCFF /* CryptoppDemoDetailViewController.m */; };
+		83F72F7714A407170061CCFF /* CryptoppDemoMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F72F7514A407170061CCFF /* CryptoppDemoMasterViewController_iPhone.xib */; };
+		83F72F7A14A407170061CCFF /* CryptoppDemoMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F72F7814A407170061CCFF /* CryptoppDemoMasterViewController_iPad.xib */; };
+		83F72F7D14A407170061CCFF /* CryptoppDemoDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F72F7B14A407170061CCFF /* CryptoppDemoDetailViewController_iPhone.xib */; };
+		83F72F8014A407170061CCFF /* CryptoppDemoDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F72F7E14A407170061CCFF /* CryptoppDemoDetailViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		83F72F5914A407170061CCFF /* Cryptopp-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cryptopp-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83F72F5D14A407170061CCFF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83F72F5F14A407170061CCFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83F72F6114A407170061CCFF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83F72F6514A407170061CCFF /* Cryptopp-for-iOS-Info.plist */ = {isa = PBXFileReference; path = "Cryptopp-for-iOS-Info.plist"; sourceTree = "<group>"; };
+		83F72F6714A407170061CCFF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83F72F6914A407170061CCFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83F72F6B14A407170061CCFF /* Cryptopp-for-iOS-Prefix.pch */ = {isa = PBXFileReference; path = "Cryptopp-for-iOS-Prefix.pch"; sourceTree = "<group>"; };
+		83F72F6C14A407170061CCFF /* CryptoppDemoAppDelegate.h */ = {isa = PBXFileReference; path = CryptoppDemoAppDelegate.h; sourceTree = "<group>"; };
+		83F72F6D14A407170061CCFF /* CryptoppDemoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptoppDemoAppDelegate.m; sourceTree = "<group>"; };
+		83F72F6F14A407170061CCFF /* CryptoppDemoMasterViewController.h */ = {isa = PBXFileReference; path = CryptoppDemoMasterViewController.h; sourceTree = "<group>"; };
+		83F72F7014A407170061CCFF /* CryptoppDemoMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptoppDemoMasterViewController.m; sourceTree = "<group>"; };
+		83F72F7214A407170061CCFF /* CryptoppDemoDetailViewController.h */ = {isa = PBXFileReference; path = CryptoppDemoDetailViewController.h; sourceTree = "<group>"; };
+		83F72F7314A407170061CCFF /* CryptoppDemoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptoppDemoDetailViewController.m; sourceTree = "<group>"; };
+		83F72F7614A407170061CCFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CryptoppDemoMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		83F72F7914A407170061CCFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CryptoppDemoMasterViewController_iPad.xib; sourceTree = "<group>"; };
+		83F72F7C14A407170061CCFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CryptoppDemoDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		83F72F7F14A407170061CCFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CryptoppDemoDetailViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83F72F5614A407170061CCFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F72F5E14A407170061CCFF /* UIKit.framework in Frameworks */,
+				83F72F6014A407170061CCFF /* Foundation.framework in Frameworks */,
+				83F72F6214A407170061CCFF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83F72F4E14A407170061CCFF = {
+			isa = PBXGroup;
+			children = (
+				83F72F6314A407170061CCFF /* Cryptopp-for-iOS */,
+				83F72F5C14A407170061CCFF /* Frameworks */,
+				83F72F5A14A407170061CCFF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83F72F5A14A407170061CCFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83F72F5914A407170061CCFF /* Cryptopp-for-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83F72F5C14A407170061CCFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83F72F5D14A407170061CCFF /* UIKit.framework */,
+				83F72F5F14A407170061CCFF /* Foundation.framework */,
+				83F72F6114A407170061CCFF /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83F72F6314A407170061CCFF /* Cryptopp-for-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				83F72F6C14A407170061CCFF /* CryptoppDemoAppDelegate.h */,
+				83F72F6D14A407170061CCFF /* CryptoppDemoAppDelegate.m */,
+				83F72F6F14A407170061CCFF /* CryptoppDemoMasterViewController.h */,
+				83F72F7014A407170061CCFF /* CryptoppDemoMasterViewController.m */,
+				83F72F7214A407170061CCFF /* CryptoppDemoDetailViewController.h */,
+				83F72F7314A407170061CCFF /* CryptoppDemoDetailViewController.m */,
+				83F72F7514A407170061CCFF /* CryptoppDemoMasterViewController_iPhone.xib */,
+				83F72F7814A407170061CCFF /* CryptoppDemoMasterViewController_iPad.xib */,
+				83F72F7B14A407170061CCFF /* CryptoppDemoDetailViewController_iPhone.xib */,
+				83F72F7E14A407170061CCFF /* CryptoppDemoDetailViewController_iPad.xib */,
+				83F72F6414A407170061CCFF /* Supporting Files */,
+			);
+			path = "Cryptopp-for-iOS";
+			sourceTree = "<group>";
+		};
+		83F72F6414A407170061CCFF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83F72F6514A407170061CCFF /* Cryptopp-for-iOS-Info.plist */,
+				83F72F6614A407170061CCFF /* InfoPlist.strings */,
+				83F72F6914A407170061CCFF /* main.m */,
+				83F72F6B14A407170061CCFF /* Cryptopp-for-iOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83F72F5814A407170061CCFF /* Cryptopp-for-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83F72F8314A407170061CCFF /* Build configuration list for PBXNativeTarget "Cryptopp-for-iOS" */;
+			buildPhases = (
+				83F72F5514A407170061CCFF /* Sources */,
+				83F72F5614A407170061CCFF /* Frameworks */,
+				83F72F5714A407170061CCFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cryptopp-for-iOS";
+			productName = "Cryptopp-for-iOS";
+			productReference = 83F72F5914A407170061CCFF /* Cryptopp-for-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83F72F5014A407170061CCFF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 83F72F5314A407170061CCFF /* Build configuration list for PBXProject "Cryptopp-for-iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83F72F4E14A407170061CCFF;
+			productRefGroup = 83F72F5A14A407170061CCFF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83F72F5814A407170061CCFF /* Cryptopp-for-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83F72F5714A407170061CCFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F72F6814A407170061CCFF /* InfoPlist.strings in Resources */,
+				83F72F7714A407170061CCFF /* CryptoppDemoMasterViewController_iPhone.xib in Resources */,
+				83F72F7A14A407170061CCFF /* CryptoppDemoMasterViewController_iPad.xib in Resources */,
+				83F72F7D14A407170061CCFF /* CryptoppDemoDetailViewController_iPhone.xib in Resources */,
+				83F72F8014A407170061CCFF /* CryptoppDemoDetailViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83F72F5514A407170061CCFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F72F6A14A407170061CCFF /* main.m in Sources */,
+				83F72F6E14A407170061CCFF /* CryptoppDemoAppDelegate.m in Sources */,
+				83F72F7114A407170061CCFF /* CryptoppDemoMasterViewController.m in Sources */,
+				83F72F7414A407170061CCFF /* CryptoppDemoDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		83F72F6614A407170061CCFF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83F72F6714A407170061CCFF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83F72F7514A407170061CCFF /* CryptoppDemoMasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83F72F7614A407170061CCFF /* en */,
+			);
+			name = CryptoppDemoMasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		83F72F7814A407170061CCFF /* CryptoppDemoMasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83F72F7914A407170061CCFF /* en */,
+			);
+			name = CryptoppDemoMasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		83F72F7B14A407170061CCFF /* CryptoppDemoDetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83F72F7C14A407170061CCFF /* en */,
+			);
+			name = CryptoppDemoDetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		83F72F7E14A407170061CCFF /* CryptoppDemoDetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83F72F7F14A407170061CCFF /* en */,
+			);
+			name = CryptoppDemoDetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83F72F8114A407170061CCFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		83F72F8214A407170061CCFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83F72F8414A407170061CCFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cryptopp-for-iOS/Cryptopp-for-iOS-Prefix.pch";
+				INFOPLIST_FILE = "Cryptopp-for-iOS/Cryptopp-for-iOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83F72F8514A407170061CCFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cryptopp-for-iOS/Cryptopp-for-iOS-Prefix.pch";
+				INFOPLIST_FILE = "Cryptopp-for-iOS/Cryptopp-for-iOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83F72F5314A407170061CCFF /* Build configuration list for PBXProject "Cryptopp-for-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83F72F8114A407170061CCFF /* Debug */,
+				83F72F8214A407170061CCFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83F72F8314A407170061CCFF /* Build configuration list for PBXNativeTarget "Cryptopp-for-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83F72F8414A407170061CCFF /* Debug */,
+				83F72F8514A407170061CCFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83F72F5014A407170061CCFF /* Project object */;
+}
