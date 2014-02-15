@@ -2,6 +2,9 @@ Summary:
   This is a demo project using Crypto++ for iOS.
   See Crypto++ project page http://www.cryptopp.com/ for more info.
 
+  Building with XCode 5.x is supported and toolchain is switched from GCC to Clang/LLVM.
+  Note that you must not link stdlibc++ but libc++ for now, which is currently default.
+
 Build the static universal library:
   1. open the Terminal and enter external/scripts directory.
   2. then, type ./build-cryptopp.sh
@@ -12,7 +15,8 @@ Build the static universal library:
       external/lib/libcryptopp.a (for architecture i386):	current ar archive random library
       external/lib/libcryptopp.a (for architecture armv6):	current ar archive random library
       external/lib/libcryptopp.a (for architecture armv7):	current ar archive random library
-      now, you get a universal binary of Crypto++
+      external/lib/libcryptopp.a (for architecture armv7s):	current ar archive random library
+      now, you get an universal binary of Crypto++
 
 Build demo app:
   1. Double click Cryptopp-for-iOS.xcodeproj

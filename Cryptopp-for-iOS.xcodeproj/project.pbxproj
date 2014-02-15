@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833CE06518AF1AEC00D3C464 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 833CE06418AF1AEC00D3C464 /* libc++.dylib */; };
 		83F72F5E14A407170061CCFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F72F5D14A407170061CCFF /* UIKit.framework */; };
 		83F72F6014A407170061CCFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F72F5F14A407170061CCFF /* Foundation.framework */; };
 		83F72F6214A407170061CCFF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F72F6114A407170061CCFF /* CoreGraphics.framework */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		833CE06418AF1AEC00D3C464 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		83F72F5914A407170061CCFF /* Cryptopp-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cryptopp-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F72F5D14A407170061CCFF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83F72F5F14A407170061CCFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -186,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833CE06518AF1AEC00D3C464 /* libc++.dylib in Frameworks */,
 				83F72F5E14A407170061CCFF /* UIKit.framework in Frameworks */,
 				83F72F6014A407170061CCFF /* Foundation.framework in Frameworks */,
 				83F72F6214A407170061CCFF /* CoreGraphics.framework in Frameworks */,
@@ -218,6 +221,7 @@
 		83F72F5C14A407170061CCFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				833CE06418AF1AEC00D3C464 /* libc++.dylib */,
 				83F72F5D14A407170061CCFF /* UIKit.framework */,
 				83F72F5F14A407170061CCFF /* Foundation.framework */,
 				83F72F6114A407170061CCFF /* CoreGraphics.framework */,
@@ -655,6 +659,7 @@
 				83F72F8514A407170061CCFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

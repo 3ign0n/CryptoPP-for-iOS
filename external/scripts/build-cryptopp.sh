@@ -1,7 +1,11 @@
 #!/bin/bash
 
-PKG_VERSION="5.6.1"
-SDK_VERSION="5.0"
+if [ ! -n "${PKG_VERSION+1}" ]; then
+  PKG_VERSION="5.6.1"
+fi
+if [ ! -n "${SDK_VERSION+1}" ]; then
+  SDK_VERSION="7.0"
+fi
 
 #############
 
@@ -10,11 +14,16 @@ LIB_NAME="lib${PKG_NAME}.a"
 ARCHIVE_NAME=${PKG_NAME}`echo ${PKG_VERSION} | sed 's/\.//g'`.zip
 URL_BASE="http://www.cryptopp.com"
 DOWNLOAD_URL=${URL_BASE}/${ARCHIVE_NAME}
+XCODE_ROOT=`xcode-select -print-path`
+XCODE_VERSION=`xcodebuild -version|awk '/^Xcode/ {print $2}'|sed 's/\.//g'`
 
 WORK_PATH=`cd $(dirname $0) && cd .. && pwd`
 #echo ${WORK_PATH}
 
 ARCHS="i386 armv6 armv7"
+if [ `echo "${SDK_VERSION} - 6.0 >= 0" | bc` == 1 ]; then
+  ARCHS="${ARCHS} armv7s"
+fi
 
 mkdir -p ${WORK_PATH}/tmp
 mkdir -p ${WORK_PATH}/lib
@@ -23,55 +32,57 @@ mkdir -p ${WORK_PATH}/objs
 
 pushd ${WORK_PATH}/tmp > /dev/null
 if [ ! -e ${ARCHIVE_NAME} ]; then
-	echo "Downloading ${ARCHIVE_NAME}"
-    curl -O ${DOWNLOAD_URL}
+  echo "Downloading ${ARCHIVE_NAME}"
+  curl -O ${DOWNLOAD_URL}
 else
-	echo "Using ${ARCHIVE_NAME}"
+  echo "Using ${ARCHIVE_NAME}"
 fi
 
 HASHCHECK_RESULT=`shasum -c ${WORK_PATH}/scripts/${ARCHIVE_NAME}.sha512`
 if [ "${HASHCHECK_RESULT}" != "${ARCHIVE_NAME}: OK" ]; then
-	echo "Downloaded file ${ARCHIVE_NAME} is broken. remove it manually and restart build script again"
-	exit 1
+  echo "Downloaded file ${ARCHIVE_NAME} is broken. remove it manually and restart build script again"
+  exit 1
 fi
 
+STATIC_ARCHIVES=""
 for ARCH in ${ARCHS}
 do
-	if [ "${ARCH}" == "i386" ]; then
-		PLATFORM="iPhoneSimulator"
-	else
-		PLATFORM="iPhoneOS"
-	fi
-	export DEV_ROOT="/Developer/Platforms/${PLATFORM}.platform/Developer"
-	export SDK_ROOT="${DEV_ROOT}/SDKs/${PLATFORM}${SDK_VERSION}.sdk"
-    BUILD_PATH="${WORK_PATH}/objs/${PLATFORM}${SDK_VERSION}-${ARCH}.sdk"
+  if [ "${ARCH}" == "i386" ]; then
+    PLATFORM="iPhoneSimulator"
+  else
+    PLATFORM="iPhoneOS"
+  fi
+  export DEV_ROOT="${XCODE_ROOT}/Platforms/${PLATFORM}.platform/Developer" 	
+  export SDK_ROOT="${DEV_ROOT}/SDKs/${PLATFORM}${SDK_VERSION}.sdk"
+  export TOOLCHAIN_ROOT="${XCODE_ROOT}/Toolchains/XcodeDefault.xctoolchain/usr/bin/"
+  BUILD_PATH="${WORK_PATH}/objs/${PLATFORM}${SDK_VERSION}-${ARCH}.sdk"
 
-	export CC="${DEV_ROOT}/usr/bin/gcc -arch ${ARCH}"
-	export LD=${DEV_ROOT}/usr/bin/ld
-	export CXX=${DEV_ROOT}/usr/bin/clang
-	export AR=${DEV_ROOT}/usr/bin/ar
-	export AS=${DEV_ROOT}/usr/bin/as
-	export NM=${DEV_ROOT}/usr/bin/nm
-	export RANLIB=$DEV_ROOT/usr/bin/ranlib
-	export LDFLAGS="-arch ${ARCH} -isysroot ${SDK_ROOT}"
-	export CXXFLAGS="-x c++ -arch ${ARCH} -isysroot ${SDK_ROOT} -I${WORK_PATH}/include/${PKG_NAME} -I${BUILD_PATH}"
+  export CC=clang
+  export CXX=clang++
+  export AR=${TOOLCHAIN_ROOT}libtool
+  export RANLIB=${TOOLCHAIN_ROOT}ranlib
+  export ARFLAGS="-static -o"
+  export LDFLAGS="-arch ${ARCH} -isysroot ${SDK_ROOT}"
+  export CXXFLAGS="-x c++ -arch ${ARCH} -isysroot ${SDK_ROOT} -I${WORK_PATH}/include/${PKG_NAME} -I${BUILD_PATH}"
 
-	echo "Building ${PKG_NAME} for ${PLATFORM} ${SDK_VERSION} ${ARCH} ..."
-	unzip -o ${ARCHIVE_NAME} > /dev/null
-	patch -p1 < ${WORK_PATH}/scripts/${PKG_NAME}`echo ${PKG_VERSION} | sed 's/\.//g'`.diff
+  echo "Building ${PKG_NAME} for ${PLATFORM} ${SDK_VERSION} ${ARCH} ..."
+  unzip -o ${ARCHIVE_NAME} > /dev/null
+  patch -p1 < ${WORK_PATH}/scripts/${PKG_NAME}`echo ${PKG_VERSION} | sed 's/\.//g'`.diff
 	
-	mkdir -p ${BUILD_PATH}
-	mv *.cpp ${BUILD_PATH}
-	mv ${BUILD_PATH}/*test* . # move back test files here, which aren't neccesary
-	mv *.h ${WORK_PATH}/include/${PKG_NAME}
+  mkdir -p ${BUILD_PATH}
+  mv *.cpp ${BUILD_PATH}
+  mv ${BUILD_PATH}/*test* . # move back test files here, which aren't neccesary
+  mv *.h ${WORK_PATH}/include/${PKG_NAME}
 
-	LOG="${BUILD_PATH}/build-${PKG_NAME}-${PKG_VERSION}.log"
+  LOG="${BUILD_PATH}/build-${PKG_NAME}-${PKG_VERSION}.log"
 
-	pushd ${BUILD_PATH} > /dev/null
-	make -f ${WORK_PATH}/scripts/Makefile >> "${LOG}" 2>&1
-	popd > /dev/null
+  pushd ${BUILD_PATH} > /dev/null
+  make -f ${WORK_PATH}/scripts/Makefile >> "${LOG}" 2>&1
+  popd > /dev/null
+  
+  STATIC_ARCHIVES="${STATIC_ARCHIVES} ${WORK_PATH}/objs/${PLATFORM}${SDK_VERSION}-${ARCH}.sdk/${LIB_NAME}"
 done
 
 echo "Creating universal  library..."
-lipo -create ${WORK_PATH}/objs/iPhoneSimulator${SDK_VERSION}-i386.sdk/${LIB_NAME} ${WORK_PATH}/objs/iPhoneOS${SDK_VERSION}-armv6.sdk/${LIB_NAME} ${WORK_PATH}/objs/iPhoneOS${SDK_VERSION}-armv7.sdk/${LIB_NAME} -output ${WORK_PATH}/lib/${LIB_NAME}
+lipo -create ${STATIC_ARCHIVES} -output ${WORK_PATH}/lib/${LIB_NAME}
 echo "Build ${LIB_NAME} done."
