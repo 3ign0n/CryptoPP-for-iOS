@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ ! -n "${PKG_VERSION+1}" ]; then
-  PKG_VERSION="5.6.1"
+  PKG_VERSION="5.6.2"
 fi
 if [ ! -n "${SDK_VERSION+1}" ]; then
-  SDK_VERSION="7.0"
+  SDK_VERSION="8.3"
 fi
 
 #############
@@ -20,7 +20,7 @@ XCODE_VERSION=`xcodebuild -version|awk '/^Xcode/ {print $2}'|sed 's/\.//g'`
 WORK_PATH=`cd $(dirname $0) && cd .. && pwd`
 #echo ${WORK_PATH}
 
-ARCHS="i386 armv6 armv7"
+ARCHS="i386 x86_64 armv7 arm64"
 if [ `echo "${SDK_VERSION} - 6.0 >= 0" | bc` == 1 ]; then
   ARCHS="${ARCHS} armv7s"
 fi
@@ -38,7 +38,7 @@ else
   echo "Using ${ARCHIVE_NAME}"
 fi
 
-HASHCHECK_RESULT=`shasum -c ${WORK_PATH}/scripts/${ARCHIVE_NAME}.sha512`
+HASHCHECK_RESULT=`shasum -c ${WORK_PATH}/scripts/${ARCHIVE_NAME}.sha1`
 if [ "${HASHCHECK_RESULT}" != "${ARCHIVE_NAME}: OK" ]; then
   echo "Downloaded file ${ARCHIVE_NAME} is broken. remove it manually and restart build script again"
   exit 1
@@ -47,7 +47,7 @@ fi
 STATIC_ARCHIVES=""
 for ARCH in ${ARCHS}
 do
-  if [ "${ARCH}" == "i386" ]; then
+  if [ "${ARCH}" == "i386" -o "${ARCH}" == "x86_64" ]; then
     PLATFORM="iPhoneSimulator"
   else
     PLATFORM="iPhoneOS"
@@ -67,7 +67,9 @@ do
 
   echo "Building ${PKG_NAME} for ${PLATFORM} ${SDK_VERSION} ${ARCH} ..."
   unzip -o ${ARCHIVE_NAME} > /dev/null
-  patch -p1 < ${WORK_PATH}/scripts/${PKG_NAME}`echo ${PKG_VERSION} | sed 's/\.//g'`.diff
+  if [ "${PKG_VERSION}" == "5.6.1" ]; then
+    patch -p1 < ${WORK_PATH}/scripts/${PKG_NAME}`echo ${PKG_VERSION} | sed 's/\.//g'`.diff
+  fi
 	
   mkdir -p ${BUILD_PATH}
   mv *.cpp ${BUILD_PATH}
