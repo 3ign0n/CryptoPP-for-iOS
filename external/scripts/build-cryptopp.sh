@@ -4,7 +4,7 @@ if [ ! -n "${PKG_VERSION+1}" ]; then
   PKG_VERSION="5.6.2"
 fi
 if [ ! -n "${SDK_VERSION+1}" ]; then
-  SDK_VERSION="8.3"
+  SDK_VERSION=`xcodebuild -showsdks 2>&1 | grep -o 'iOS \d\+\(\.\d\+\)*' | tail -1 | grep -o '\d\+\(\.\d\+\)*'`
 fi
 
 #############
